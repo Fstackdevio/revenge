@@ -1,0 +1,51 @@
+<div ng-include="'assets/partials/header.html'"></div>
+<div class="wrapper">
+    <div class="container">
+		<div class="row" ng-controller="seCtrl">
+			<div class="container m-t-20">
+				<a href="#bso-modal" data-animation="door" data-plugin="custommodal" data-overlaySpeed="200" data-overlayColor="#36404a"> 
+					<div class="col-md-6 col-lg-4 text-center">
+				        <div class="company-card card-box">
+				            <p><img class="icon-colored" src="assets/images/icons/lock.svg" title="BSO"></p>
+				            <h4>Basic Security Options</h4>
+				            <p class="text-muted">
+				            	Secure your account from attacks using basic security settings.
+				            </p>
+				        </div>
+				    </div>
+				</a>
+				
+				<a href="#iso-modal" data-animation="blur" data-plugin="custommodal" data-overlaySpeed="200" data-overlayColor="#36404a">
+				    <div class="col-md-6 col-lg-4 text-center">
+				        <div class="company-card card-box">
+				            <p><img class="icon-colored" src="assets/images/icons/electrical_sensor.svg" title="ISO"></p>
+				            <h4>Intermediate Security Options</h4>
+				            <p class="text-muted">
+				            	Set intermediate security options to secure your account from webcrawlers and scammers
+				            </p>
+				        </div>
+				    </div>
+			    </a>
+
+				<a href="#aso-modal" data-animation="blur" data-plugin="custommodal" data-overlaySpeed="200" data-overlayColor="#36404a">
+				    <div class="col-md-6 col-lg-4 text-center">
+				        <div class="company-card card-box">
+				            <p><img class="icon-colored" src="assets/images/icons/circuit.svg" title="ASO"></p>
+				            <h4>Absolute Security Options</h4>
+				            <p class="text-muted">
+				            	Absolute security options helps you to completely secure your coins from every form of attacks.
+				            </p>
+				        </div>
+				    </div>
+			    </a>
+
+			 </div>
+
+	<!-- Modal Page -->
+	
+	    	<script src="assets/js/jquery.core.js"></script>
+
+		</div>
+		<div ng-include="'assets/partials/secmodals.html'"></div>
+	</div>
+</div>

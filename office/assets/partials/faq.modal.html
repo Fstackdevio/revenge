@@ -1,0 +1,63 @@
+<!-- send/receive modal -->
+<div id="support" class="modal-demo">
+    <button type="button" class="close" onclick="Custombox.close();">
+        <span>&times;</span><span class="sr-only">Close</span>
+    </button>
+    <h4 class="custom-modal-title">Contact our support center</h4>
+    <div class="custom-modal-text">
+        <!-- <div class="col-sm-12"> -->
+            <!-- <div class="card-box"> -->
+                <p class="text-muted text-center font-14 m-b-20">
+                    Couldn't find your question or complaint in our FAQs section? use the form below to write to one of our support agents.
+                </p>
+
+                <div class="alert alert-warning fade in hidden">
+                    <h4>Oh snap!</h4>
+                    <p>This form seems to be invalid make sure all fields are properly filled</p>
+                </div>
+
+                <div class="alert alert-info fade in hidden">
+                    <h4>Yay!</h4>
+                    <p>Everything seems to be ok. Click the "send" button to send your message</p>
+                </div>
+
+                <form id="demo-form" data-parsley-validate="" novalidate="">
+                    <div class="form-group">
+                        <label for="fullname">Full Name * :</label>
+                        <input type="text" class="form-control parsley-success" name="fullname" id="fullname" required="" data-parsley-id="5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email * :</label>
+                        <input type="email" id="email" class="form-control parsley-success" name="email" data-parsley-trigger="change" required="" data-parsley-id="7" readonly value="davidadegoke31@gmail.com"><ul class="parsley-errors-list" id="parsley-id-7"></ul>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message (20 chars min, 100 max) :</label>
+                                <textarea id="message" class="form-control parsley-success" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 character comment.." data-parsley-validation-threshold="10" data-parsley-id="11"></textarea><ul class="parsley-errors-list" id="parsley-id-11"></ul>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-inverse waves-effect waves-light" value="Send">
+                    </div>
+
+                </form>
+            <!-- </div> -->
+        <!-- </div> -->
+    </div>
+</div>
+ <!-- Parsley js -->
+<script type="text/javascript" src="../plugins/parsleyjs/parsley.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('form').parsley();
+    });
+    $(function () {
+        $('#demo-form').parsley().on('field:validated', function () {
+            var ok = $('.parsley-error').length === 0;
+            $('.alert-info').toggleClass('hidden', !ok);
+            $('.alert-warning').toggleClass('hidden', ok);
+        }).on('form:submit', function () {
+                    return false; // Don't submit form for this demo
+                });
+    });
+</script>

@@ -1,0 +1,35 @@
+<div class="panel" ng-controller="loginController">
+  <ul class="panel__menu" id="menu">
+    <hr/>
+    <li id="signIn"> <a href="#">Login</a></li>
+    <li id="signUp"><a href="#">Sign up</a></li>
+  </ul>
+  <div class="panel__wrap">
+  
+    <div class="panel__box active" id="signInBox">
+      <a href="#" class="pull-right"><i class="fa fa-eye">eye</i></a>
+      <label>Email
+        <input type="email"/>
+      </label>
+      <label>Password
+        <input type="password"/>
+      </label>
+      <input type="submit"/>
+    </div>
+    <div class="panel__box" id="signUpBox">
+      <label>First Name
+        <input type="text" name="firstname"/>
+      </label>
+      <label>Last Name
+        <input type="text" name="lastname">
+      </label>
+      <label>Email
+        <input type="email" name="email" />
+      </label>
+      <label>Password
+        <input type="password"/>
+      </label>
+      <input type="submit" class="btn btn-default" />
+    </div>
+  </div>
+</div>

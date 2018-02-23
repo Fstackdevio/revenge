@@ -1,0 +1,391 @@
+<!-- Modal -->
+    <!-- Basic security options modal -->
+    <div id="bso-modal" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.close();">
+            <span>&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="custom-modal-title">Basic Security Options</h4>
+        <div class="custom-modal-text">
+            <ul class="nav nav-tabs tabs-bordered nav-justified">
+                <li class="active">
+                    <a href="#email" data-toggle="tab" aria-expanded="true">
+                        <span class="visible-xs"><i class="fa fa-home"></i></span>
+                        <span class="hidden-xs">Email Verification</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#securityquestion" data-toggle="tab" aria-expanded="false">
+                        <span class="visible-xs"><i class="fa fa-user"></i></span>
+                        <span class="hidden-xs">Security Question</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#passwordhint" data-toggle="tab" aria-expanded="false">
+                        <span class="visible-xs"><i class="fa fa-envelope-o"></i></span>
+                        <span class="hidden-xs">Password Hint</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="email" ng-hide="my.message">
+                    <div class="text-center">
+                    	<p><img class="icon-colored" src="assets/images/icons/checkmark.svg" title=""></p>
+                    	<h5>Email Verification Link Sent {{test}}</h5>
+                    	<p class="text-muted">
+                    		We have sent an email to davidadegoke31@gmail.com. Please open the email and follow the instructions to complete your wallet setup. Didn't receive the email? Resend Verification Email or Change
+                    	</p>
+                    </div>
+                </div>
+                <div class="tab-pane" id="securityquestion">
+                    <div class="text-center" align="center">
+                    	<p><p><img class="icon-colored" src="assets/images/icons/decision.svg" title=""></p></p>
+                    	<h5>Set a security question in case you forget your password</h5>
+                    	<form class="form-horizontal" role="form" style="display: flex;justify-content: center;align-self: center;">
+						    <center><div class="form-group">
+						        <div class="col-sm-12">
+						            <input type="password" class="form-control" id="pass" placeholder="Password">
+						        </div>
+						    </div>
+						    <div class="form-group">
+						        <div class="col-sm-12">
+						            <input type="text" class="form-control" id="" placeholder="Security Question">
+						        </div>
+						    </div>
+						    <div class="form-group">
+						        <div class="col-sm-12">
+						            <input type="text" class="form-control" id="" placeholder="Answer">
+                                    <button class="btn btn-primary waves-effect waves-dark m-t-10" id="savet">Save</button>
+						        </div>
+						    </div></center>
+						</form>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="passwordhint">
+                    <div class="text-center">
+                    	<p><img class="icon-colored" src="assets/images/icons/sim_card_chip.svg" title=""></p>
+                    	<h5>Set a password hint to easily remember your password by in the future</h5>
+                    	<form class="form-horizontal" role="form" style="display: flex;justify-content: center;align-self: center;">
+						    <div class="form-group">
+						        <div class="col-sm-12">
+						            <input type="text" class="form-control" id="" placeholder="Password Hint">
+						            <button class="btn btn-inverse waves-effect waves-dark m-t-10">Enable Filter</button>
+						        </div>
+						    </div></center>
+						</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second modal -->
+
+    <!-- Intermediate security options modal -->
+     <div id="iso-modal" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.close();">
+            <span>&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="custom-modal-title">Intermediate Security Options</h4>
+        <div class="custom-modal-text">
+            <ul class="nav nav-tabs tabs-bordered nav-justified">
+                <li class="active">
+                    <a href="#phone" data-toggle="tab" aria-expanded="true">
+                        <span class="visible-xs"><i class="fa fa-home"></i></span>
+                        <span class="hidden-xs">Set up phone verification</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#2step" data-toggle="tab" aria-expanded="false">
+                        <span class="visible-xs"><i class="fa fa-user"></i></span>
+                        <span class="hidden-xs">Two step verification</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="phone">
+                    <div class="text-center">
+                    	<p><img class="icon-colored" src="assets/images/icons/lock_portrait.svg" title=""></p>
+                    	<h5>Phone Verification</h5>
+                    	<p>Use your mobile phone to receive a one-time-password after a login attempt. Add your mobile phone number below to continue.</p>
+                    	<form class="form-horizontal" role="form" style="display: flex;justify-content: center;align-self: center;">
+						    <div class="form-group">
+						        <div class="col-sm-12">
+						            <input type="text" class="form-control" id="" placeholder="Phone Number">
+						            <button class="btn btn-primary waves-effect waves-dark m-t-10">Save</button>
+						        </div>
+						    </div></center>
+						</form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="2step">
+                    <div class="text-center" align="center">
+                    	<p><img class="icon-colored" src="assets/images/icons/tree_structure.svg" title=""></p>
+                    	<p>2-Step Verification helps prevent unauthorized access to your wallet by requiring a one-time password after every login attempt. Enabling this option helps keep unauthorized users from being able to access your wallet.</p>
+                    	<button class="btn btn-primary waves-effect waves-dark m-t-5">Enable Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Absolute security options modal -->
+    <div id="aso-modal" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.close();">
+            <span>&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="custom-modal-title">Absolute Security Options</h4>
+        <div class="custom-modal-text">
+            <ul class="nav nav-tabs tabs-bordered nav-justified">
+                <li class="active">
+                    <a href="#block" data-toggle="tab" aria-expanded="true">
+                        <span class="visible-xs"><i class="fa fa-home"></i></span>
+                        <span class="hidden-xs">Filter Account Logins</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#reset" data-toggle="tab" aria-expanded="false">
+                        <span class="visible-xs"><i class="fa fa-user"></i></span>
+                        <span class="hidden-xs">Threat Detection & Reporting</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="block">
+                    <div class="text-center">
+                    	<p><img class="icon-colored" src="assets/images/icons/clear_filters.svg" title=""></p>
+                    	<h5>Filter login attempts</h5>
+                    	<p class="text-muted">
+                    		Click the button below, to enable the filter login attempts feature. If this feature is enabled, when somone tries to login to your account with a wrong password, you would be alerted.
+                    	</p>
+                    	<button class="btn btn-primary waves-effect waves-dark">Enable Filter</button>
+                    </div>
+                </div>
+                <div class="tab-pane" id="reset">
+                    <div class="text-center">
+                    	<p><img class="icon-colored" src="assets/images/icons/high_priority.svg" title=""></p>
+                    	<h5>Threat Detection and Reporting (TDaR)</h5>
+                    	<p class="text-muted">
+                    		Get notified when threats and unidentified access and activities occur on your account and have our top security professionals tackle the problem for you without you losing your coins.
+                    	</p>
+                    	<button class="btn btn-primary waves-effect waves-dark">Enable TDaR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Contact form modal -->
+     <div id="contact-modal" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.close();">
+            <span>&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="custom-modal-title">Contact our support center</h4>
+        <div class="custom-modal-text">
+            
+        </div>
+    </div>
+
+
+    <!-- Transaction modal -->
+     <div id="transmodal" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.close();">
+            <span>&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="custom-modal-title">Send and receive bitcoins</h4>
+        <div class="custom-modal-text">
+            
+        </div>
+    </div>
+
+
+    <!-- send/receive modal -->
+    <div id="newtrans" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.close();">
+            <span>&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="custom-modal-title">Create a transaction</h4>
+        <div class="custom-modal-text">
+            <ul class="nav nav-tabs tabs-bordered nav-justified">
+                <li class="active">
+                    <a href="#block1" data-toggle="tab" aria-expanded="true">
+                        <span class="visible-xs"><i class="fa fa-home"></i></span>
+                        <span class="hidden-xs">Send Bitcoins</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#reset1" data-toggle="tab" aria-expanded="true">
+                        <span class="visible-xs"><i class="fa fa-user"></i></span>
+                        <span class="hidden-xs">Receive Bitcoins</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="block1">
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form role="form" name="ajax-form" action="#" method="post" class="contact-form" data-parsley-validate="" novalidate="">
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        Receiver Address    
+                                                    </span>
+
+                                                    <input type="text" id="example-input1-group1" name="example-input1-group1" class="form-control" ng-model="receiver" placeholder="Enter the bitcoin address you would like to send to">
+
+                                                    <span class="input-group-btn">
+                                                        <!-- <button type="button">
+                                                            <i class="mdi mdi-qrcode-scan"></i>
+                                                        </button> -->
+                                                        <button type="button" class="btn waves-effect waves-light btn-inverse">
+                                                            <i class="mdi mdi-qrcode-scan"></i>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /Form-name -->
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="container">
+                                                <div class="col-sm-5">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="mdi mdi-currency-btc"></i>                                                             
+                                                        </span>
+
+                                                        <input type="number" id="example-input1-group1" name="example-input1-group1" class="form-control spnles" placeholder="Number of bitcoins" min="0" ng-model="btctrans" ng-value="dollartrans / exchangeRate.buy">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-2 parent">
+                                                    <span class="child"><i class="fa fa-exchange fa-2x"></i></span>
+                                                </div>
+
+                                                <div class="col-sm-5">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <!-- <i class="mdi mdi-currency-usd"></i> -->
+                                                            <span>
+                                                                {{exchangeRate.symbol}}
+                                                            </span>
+                                                        </span>
+
+                                                        <input type="number" id="example-input1-group1" name="example-input1-group1" class="form-control spnles" placeholder="Amount in {{storedVal}}" min="0" ng-model="dollartrans" ng-value="btctrans * exchangeRate.buy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /Form-email -->
+
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="message2" ng-model="des" name="message" rows="5" placeholder="Short description about the purpose of the transfer." required=""></textarea>
+                                    </div>
+                                    <!-- /Form Msg -->
+
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="">
+                                                <button type="submit" class="btn btn-primary waves-effect waves-light" id="send">Submit</button>
+                                            </div>
+                                        </div> <!-- /col -->
+                                    </div> <!-- /row -->
+
+                                </form> <!-- /form -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="reset1">
+                    <div class="text-center">
+                        <p><img class="icon-colored" src="assets/images/icons/high_priority.svg" title=""></p>
+                        <h5>Share your address only when you want to receive payment</h5>
+                        <div class="text-center">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form role="form" name="ajax-form" action="#" method="post" class="contact-form" data-parsley-validate="" novalidate="">
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        Your Bitwallet Address    
+                                                    </span>
+
+                                                    <input type="text" id="example-input1-group1" name="example-input1-group1" class="form-control" placeholder="Enter the bitcoin address you would like to send to">
+
+                                                    <span class="input-group-btn">
+                                                        <!-- <button type="button">
+                                                            <i class="mdi mdi-qrcode-scan"></i>
+                                                        </button> -->
+                                                        <button type="button" class="btn waves-effect waves-light btn-inverse">
+                                                            <i class="mdi mdi-qrcode-scan"></i>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /Form-name -->
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="container">
+                                                <div class="col-sm-5">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="mdi mdi-currency-btc"></i>                                                             
+                                                        </span>
+
+                                                        <input type="number" id="example-input1-group1" name="example-input1-group1" class="form-control spnles" placeholder="Number of bitcoins" min="0" ng-model="btctrans" ng-value="dollartrans / exchangeRate.buy">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-2 parent">
+                                                    <span class="child"><i class="fa fa-exchange fa-2x"></i></span>
+                                                </div>
+
+                                                <div class="col-sm-5">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <!-- <i class="mdi mdi-currency-usd"></i> -->
+                                                            <span>
+                                                                {{exchangeRate.symbol}}
+                                                            </span>
+                                                        </span>
+
+                                                        <input type="number" id="example-input1-group1" name="example-input1-group1" class="form-control spnles" placeholder="Amount in {{storedVal}}" min="0" ng-model="dollartrans" ng-value="btctrans * exchangeRate.buy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="">
+                                                <button type="submit" class="btn btn-primary btn-md waves-effect waves-light" id="send">Copy Address</button>
+                                            </div>
+                                        </div> <!-- /col -->
+                                    </div> <!-- /row -->
+
+                                </form> <!-- /form -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,151 @@
+<div ng-include="'assets/partials/header.html'"></div>
+<div class="wrapper">
+    <div class="container">
+        <div class="row" ng-controller="transCtrl">
+            <div class="col-md-12">
+                <div class="card-box">
+
+                    <ul class="nav nav-tabs tabs-bordered">
+                        <li class="active">
+                            <a href="#all" data-toggle="tab" aria-expanded="true">
+                                <span class="visible-xs"><i class="fi-paper-stack"></i></span>
+                                <span class="hidden-xs">All</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#sent" data-toggle="tab" aria-expanded="false">
+                                <span class="visible-xs"><i class="fi-upload"></i></span>
+                                <span class="hidden-xs">Sent</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#received" data-toggle="tab" aria-expanded="false">
+                                <span class="visible-xs"><i class="fi-download"></i></span>
+                                <span class="hidden-xs">Received</span>
+                            </a>
+                        </li>
+                        <!-- <li class="">
+                            <a href="#transferred" data-toggle="tab" aria-expanded="false">
+                                <span class="visible-xs"><i class="fi-location"></i></span>
+                                <span class="hidden-xs">Transferred</span>
+                            </a>
+                        </li> -->
+
+                        <li class="pull-right m-l-5" style="height: 100% !important;border:1px solid #36404c;border-radius: 5px;">
+                            <button type="button" class="btn btn-icon waves-effect btn-inverse waves-light"><i class="fi-search"></i></button>
+                        </li>
+
+                        <li class="pull-right">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Search...">
+                            </div>
+                        </li>
+
+                        <li class="pull-right m-r-10">
+                            <!-- <a href=""></a> -->
+                            <button type="button" class="btn btn-icon waves-effect btn-default"><i class="fi-location"></i></button>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="all">
+                            <table class="tablesaw m-t-20 table m-b-0 tablesaw-stack" data-tablesaw-mode="stack" id="table-3066">
+                                <thead>
+                                <tr>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="persist">SN</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="persist">Sender address</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-sortable-default-col="" data-tablesaw-priority="3">Receiver address</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="2">Number of coins</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="1">Dollar equivalent</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="4">Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="val in values">
+                                        <!-- <div ng-repeat="newvalue in val"> -->
+                                            <td><span class="tablesaw-cell-content">{{$index+1}}</span></td>
+                                            <td><span class="tablesaw-cell-content">{{val.sender_address}}</span></td>
+                                            <td><span class="tablesaw-cell-content">{{val.receiver_address}}</span></td>
+                                            <td><span class="tablesaw-cell-content">{{val.price_in_btc}}</span></td>
+                                            <td><span class="tablesaw-cell-content">${{val.price_in_curr}}</span></td>
+                                            <td><span class="tablesaw-cell-content">{{val.date}}</span></td>
+                                        <!-- </div> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="sent">
+                            <table class="tablesaw m-t-20 table m-b-0 tablesaw-stack" data-tablesaw-mode="stack" id="table-3066">
+                                <thead>
+                                <tr>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="persist">SN</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="persist">Sender address</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-sortable-default-col="" data-tablesaw-priority="3">Receiver address</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="2">Number of coins</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="1">Dollar equivalent</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="4">Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="data in datas">
+                                        <td><span class="tablesaw-cell-content">{{$index+1}}</span></td>
+                                        <td><span class="tablesaw-cell-content">{{data.sender_address}}</span></td>
+                                        <td><span class="tablesaw-cell-content">{{data.receiver_address}}</span></td>
+                                        <td><span class="tablesaw-cell-content">{{data.price_in_btc}}</span></td>
+                                        <td><span class="tablesaw-cell-content">${{data.price_in_curr}}</span></td>
+                                        <td><span class="tablesaw-cell-content">{{data.date}}</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="received">
+                            <table class="tablesaw m-t-20 table m-b-0 tablesaw-stack" data-tablesaw-mode="stack" id="table-3066">
+                                <thead>
+                                <tr>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="persist">SN</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="persist">Receiver address</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-sortable-default-col="" data-tablesaw-priority="3">Sender address</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="2">Number of coins</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="1">Dollar equivalent</th>
+                                    <th scope="col" data-tablesaw-sortable-col="" data-tablesaw-priority="4">Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr  ng-repeat="receive in received">
+                                    <td><span class="tablesaw-cell-content">{{$index+1}}</span></td>
+                                    <td><span class="tablesaw-cell-content">{{receive.sender_address}}</span></td>
+                                    <td><span class="tablesaw-cell-content">{{receive.receiver_address}}</span></td>
+                                    <td><span class="tablesaw-cell-content">{{receive.price_in_btc}}</span></td>
+                                    <td><span class="tablesaw-cell-content">${{receive.price_in_curr}}</span></td>
+                                    <td><span class="tablesaw-cell-content">{{receive.date}}</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="transferred">
+                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div>
+    </div>
+
+    <!-- <div class="cnt waves-effect waves-dark">
+        <div href="" class="at-button ">
+            <i class="dripicons-plus fa-2x itm" style="color:white !important;"></i>
+        </div>
+    </div> -->
+
+    <div class="fab waves-effect waves-dark" id="masterfab">
+        <a class="itm" href="#newtrans" data-animation="door" data-plugin="custommodal" data-overlaySpeed="200" data-overlayColor="#36404a">
+            <i class="fi-server" style="color:white"></i>
+        </a>
+    </div>
+
+
+    <!-- Modal Page -->
+    <div ng-include="'assets/partials/sec-modals.html'"></div>
+    <script src="assets/js/jquery.core.js"></script>
+</div>
