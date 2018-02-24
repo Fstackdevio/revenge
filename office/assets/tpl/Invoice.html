@@ -1,3 +1,53 @@
-<div>
-	<h1>Invoice</h1>
+<div ng-include="'assets/partials/header.html'"></div>
+<div class="wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card-box">
+					<div class="text-center">
+						<p class="text-muted foont-600">HELLO! THIS IS</p>
+						<h3 class="font-200">INVOICE</h3>
+						<p>Kindly find the automated generated invoice for each transaction been made below.</p>
+					</div>
+					<hr>
+					<div class="container">
+						<ul class="nav navbar-nav navbar-right pull-right">
+							<li>
+								<form name="Tranx" role="search" ng-controller="TransSearch">
+									<input type="text" ng-model="itsData1.scoop" placeholder="Search..." class="form-control">
+								</form>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 pull-left">
+				<div class="card-box">
+					<h5 class="header-title">Transaction ID</h5>
+					<div class="trans-list m-t-20" ng-controller="trans">
+							<ul class="nav nav-pills nav-stacked">
+								<li ng-repeat="x in accnt | filter:itsData2.scoop ">
+									<a class="list-group-item b-0" onclick="">{{x.id}}</a>
+								</li>
+							</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-9 pull-right">
+				<div class="card-box p-10">
+					<div class="text-center">
+						<p>
+							<img class="icon-colored" src="assets/images/icons/document.svg">
+							<h3 class="font-normal text-muted">Hi!</h3>
+							<p class="m-b-30 container text-muted">Invoice preview shows here.</p>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
+<!-- <script src="assets/js/bitty.srv.js"></script> -->
+<div ng-include="'assets/partials/secmodals.html'"></div>
+<script src="assets/js/jquery.core.js"></script>

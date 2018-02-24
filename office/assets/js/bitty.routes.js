@@ -75,6 +75,13 @@ app.config(['$urlRouterProvider','$stateProvider','$locationProvider', function(
 			pageTitle: 'Getting Started'
 		}
 	})
+	.state('profile', {
+		url: '/profile',
+		templateUrl: './assets/tpl/profile.html',
+		data: {
+			pageTitle: 'Profile'
+		}
+	})
 	.state('help', {
 		url: '/help',
 		templateUrl: './assets/tpl/help.html',
@@ -161,7 +168,7 @@ app.config(['$urlRouterProvider','$stateProvider','$locationProvider', function(
 	})
 	.state('login', {
 		url: '/login',
-		templateUrl: './assets/tpl/login.html',
+		templateUrl: './assets/tpl/pagelogin.html',
 		data: {
 			pageTitle: 'login'
 		}

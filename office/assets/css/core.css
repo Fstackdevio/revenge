@@ -50,6 +50,9 @@ h6 {
   margin: 10px 0;
   font-weight: 700;
 }
+hr {
+  border-style: inset;
+}
 h5 {
   font-size: 15px;
 }

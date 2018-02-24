@@ -182,6 +182,42 @@ app.controller('bctrl.dash', function($scope,$http,externData){
 
 
 
+app.controller('trans', ['$scope', function($scope, ShareData) {
+	$scope.itsData2 = ShareData;
+	$scope.accnt = [
+		{
+			id: 'FSP330045BD',
+			date: '12-09-2018',
+			to: 'Jude',
+			from: 'James',
+		},
+		{
+			id: 'FSP443610XF',
+		},
+		{
+			id: 'FSP130045SS',
+		},
+		{
+			id: 'FSP558948GB',
+		}
+	];
+}]);
+
+app.controller('TransSearch', ['$scope', function($scope, ShareData) {
+	$scope.itsData1 = ShareData;
+	$scope.lookup = {
+		text: 'FSP',
+		word: /^\s*\w*\s*$/
+	};
+}]);
+
+app.service('ShareData', function() {
+	return {
+		scoop: "FSP"
+	}
+})
+
+
 app.controller('transCtrl', ['$scope', '$http', function($scope,$http){
 	$http.get('http://localhost/festapay/svr/class/v1/getransactions').then(function(res){
 		var me = res.data.value;
@@ -200,34 +236,4 @@ app.controller('transCtrl', ['$scope', '$http', function($scope,$http){
 		$scope.received = receive;
 		// console.log(me);	
 	})
-}]);
-
-
-
-app.controller('loginController', ['$scope', '$http', function($scope,$http){
-    var menu = document.getElementById('menu'),
-    panelMenu = menu.querySelectorAll('li'),
-    panelBoxes = document.querySelectorAll('.panel__box'),
-    signUp = document.getElementById('signUp'),
-    signIn = document.getElementById('signIn');
-
-    function removeSelection(){
-        for(var i = 0, len = panelBoxes.length; i < len; i++){panelBoxes[i].classList.remove('active');
-        }
-    }
-
-
-    signIn.onclick = function(e){
-      e.preventDefault();
-      removeSelection();
-      panelBoxes[0].classList.add('active');
-      menu.classList.remove('second-box');
-    }
-
-    signUp.onclick = function(e){
-      e.preventDefault();
-      removeSelection();
-      panelBoxes[1].classList.add('active');
-      menu.classList.add('second-box');
-    }
 }]);
