@@ -82,6 +82,13 @@ app.config(['$urlRouterProvider','$stateProvider','$locationProvider', function(
 			pageTitle: 'Profile'
 		}
 	})
+	.state('messages', {
+		url: '/messages',
+		templateUrl: './assets/tpl/messages.html',
+		data: {
+			pageTitle: 'Messages'
+		}
+	})
 	.state('help', {
 		url: '/help',
 		templateUrl: './assets/tpl/help.html',

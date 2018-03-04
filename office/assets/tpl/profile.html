@@ -1,1 +1,89 @@
-<p>profile is working</p>
+<div ng-include="'assets/partials/header.html'"></div>
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+           <div class="col-sm-12" ng-controller="imgPros" ng-style="background-image:url('{{img.path}}')">
+               <div class="profile-bg-picture">
+                   <span class="picture-bg-overlay"></span>
+               </div>
+           </div>
+           <div class="profile-user-box" ng-controller="imgPros">
+               <div class="row">
+                   <div class="col-sm-6">
+                       <span class="pull-left m-r-15">
+                           <img ng-src="{{img.path}}" class="thumb-lg img-circle">
+                        </span>
+                       <div class="media-body">
+                           <h4 class="m-t-5 m-b-5 ellipsis">{{user.name}} {{user.surname}}</h4>
+                           <p class="font-13">{{user.occupation}}</p>
+                           <p class="text-muted m-b-0">
+                               <small>{{user.location}}</small>
+                           </p>
+                       </div>
+                   </div>
+                   <div class="col-sm-6">
+                       <div class="text-right">
+                           <button type="button" class="btn btn-success waves-effect waves-light">Edit Profile</button>
+                       </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <!--Personal Information-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Personal Information</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="text-muted font-13">{{user.bio}}</p>
+                    </div>
+                    <hr/>
+                    <div class="text-left">
+                        <p class="text-muted font-13"><strong>Full Name :</strong><span class="m-l-15">{{user.fullname}}</span></p>
+                        <p class="text-muted font-13"><strong>Mobile :</strong><span class="m-l-15">{{user.mobile}}</span></p>
+                        <p class="text-muted font-13"><strong>E-Mail :</strong><span class="m-l-15">{{user.email}}</span></p>
+                        <p class="text-muted font-13"><strong>Location :</strong><span class="m-l-15">{{user.location}}</span></p>
+                        <p class="text-muted font-13" ng-controller="langlist"><strong>Languages : </strong>
+                            <span class="m-l-15" ng-repeat="x in langs">
+                                <span class="flag-icon m-r-5 m-t-0"></span>
+                                <span>{{x.langs}}</span>
+                            </span>
+                        </p>
+                    </div>
+                    <!--Latest Inbox Pull-->
+                    <div class="card-box ribbon-box" ng-controller="inbox-pull">
+                        <div class="ribbon ribbon-primary">Messages</div>
+                        <div class="clearfix"></div>
+                        <div class="inbox-widget">
+                            <a onclick="" ng-repeat="x in pool">
+                                <div class="inbox-item">
+                                    <div class="inbox-item-text">
+                                        <p class="text-muted">Sorry, you have no recent messages...</p>
+                                    </div>
+                                    <div class="inbox-item-img">
+                                        <img ng-src="{{pool.img}}" class="img-circle" alt="mailer image">
+                                        <p class="inbox-item-author">{{pool.mailer}}</p>
+                                        <p class="inbox-item-text">{{pool.subject}}</p>
+                                        <p class="inbox-item-date m-t-10">
+                                            <button type="button" class="btn btn-icon btn-xs waves-effect waves-light btn-success"> Reply </button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div ng-include="'assets/partials/secmodals.html'"></div>
+<script src="assets/js/jquery.core.js"></script>
