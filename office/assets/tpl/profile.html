@@ -1,17 +1,17 @@
 <div ng-include="'assets/partials/header.html'"></div>
-<div class="wrapper">
+<div class="wrapper" ng-controller="ProfileInfo" ng-init="displayData()">
     <div class="container">
         <div class="row">
-           <div class="col-sm-12" ng-controller="imgPros" ng-style="background-image:url('{{img.path}}')">
+           <div class="col-sm-12" ng-style="background-image:url('{{user.cover}}')">
                <div class="profile-bg-picture">
                    <span class="picture-bg-overlay"></span>
                </div>
            </div>
-           <div class="profile-user-box" ng-controller="imgPros">
+           <div class="profile-user-box">
                <div class="row">
                    <div class="col-sm-6">
                        <span class="pull-left m-r-15">
-                           <img ng-src="{{img.path}}" class="thumb-lg img-circle">
+                           <img ng-src="{{user.avatar}}" class="thumb-lg img-circle">
                         </span>
                        <div class="media-body">
                            <h4 class="m-t-5 m-b-5 ellipsis">{{user.name}} {{user.surname}}</h4>
@@ -23,7 +23,7 @@
                    </div>
                    <div class="col-sm-6">
                        <div class="text-right">
-                           <button type="button" class="btn btn-success waves-effect waves-light">Edit Profile</button>
+                           <button type="button" class="btn btn-success waves-effect waves-light" ng-click="updateData(id, bio, location, avatar, cover, email, mobile)">Edit Profile</button>
                        </div>
                    </div>
                </div>
@@ -46,9 +46,9 @@
                         <p class="text-muted font-13"><strong>E-Mail :</strong><span class="m-l-15">{{user.email}}</span></p>
                         <p class="text-muted font-13"><strong>Location :</strong><span class="m-l-15">{{user.location}}</span></p>
                         <p class="text-muted font-13" ng-controller="langlist"><strong>Languages : </strong>
-                            <span class="m-l-15" ng-repeat="x in langs">
+                            <span class="m-l-15" ng-repeat="x in languages">
                                 <span class="flag-icon m-r-5 m-t-0"></span>
-                                <span>{{x.langs}}</span>
+                                <span>{{x.langs | user.languages}}</span>
                             </span>
                         </p>
                     </div>

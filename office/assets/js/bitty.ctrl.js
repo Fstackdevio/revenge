@@ -9,7 +9,7 @@ app.controller('bctrl', ['$scope','$http', function($scope,$http){
     	}
 	});
 
-	$http.get('http://localhost/festapay/svr/class/v1/values').then(function(res){
+	$http.get('http://localhost/revenge/svr/class/v1/values').then(function(res){
         var username = res.data.username;
         var email = res.data.email;
         var phone = res.data.phone;
@@ -65,7 +65,7 @@ app.controller('bctrl.nav', ['$scope','$http', function($scope,$http){
 		$scope.myCur = current.pref;
 	}
 
-	$http.get('http://localhost/festapay/svr/office/assets/js/temp.json').then(function(res){
+	$http.get('http://localhost/revenge/svr/office/assets/js/temp.json').then(function(res){
 		var dat = res.data; $scope.currencies = [];
 
 		Object.keys(dat).forEach(key => {
@@ -112,7 +112,7 @@ app.controller('bctrl.dash', function($scope,$http,externData){
         })
     }
 
-	$http.get('http://localhost/festapay/svr/class/v1/values').then(function(res){
+	$http.get('http://localhost/revenge/svr/class/v1/values').then(function(res){
         var username = res.data.username;
         var email = res.data.email;
         var phone = res.data.phone;
@@ -126,7 +126,7 @@ app.controller('bctrl.dash', function($scope,$http,externData){
             // console.log('error', res);
     });
 
-    $http.get('http://localhost/festapay/svr/class/v1/balance').then(function(res){
+    $http.get('http://localhost/revenge/svr/class/v1/balance').then(function(res){
         var address = res.data.bitaddress;
         var bitbalance = res.data.avail_bal;
         $scope.bitbalance = bitbalance;
@@ -139,7 +139,7 @@ app.controller('bctrl.dash', function($scope,$http,externData){
             console.log('error', res);
     });
 
-    $http.get('http://localhost/festapay/svr/class/v1/getrans').then(function(res){
+    $http.get('http://localhost/revenge/svr/class/v1/getrans').then(function(res){
         var amount = res.data.transamount;
         $scope.transget = amount;
         // console.log($scope.transget);
@@ -215,25 +215,105 @@ app.service('ShareData', function() {
 	return {
 		scoop: "FSP"
 	}
-})
+});
 
 
 app.controller('transCtrl', ['$scope', '$http', function($scope,$http){
-	$http.get('http://localhost/festapay/svr/class/v1/getransactions').then(function(res){
+	$http.get('http://localhost/revenge/svr/class/v1/getransactions').then(function(res){
 		var me = res.data.value;
 		$scope.values = me;
 		// console.log(me);	
 	})
 
-	$http.get('http://localhost/festapay/svr/class/v1/getsent').then(function(res){
+	$http.get('http://localhost/revenge/svr/class/v1/getsent').then(function(res){
 		var sent = res.data.value;
 		$scope.datas = sent;
 		// console.log(me);	
 	})
 
-	$http.get('http://localhost/festapay/svr/class/v1/getreceive').then(function(res){
+	$http.get('http://localhost/revenge/svr/class/v1/getreceive').then(function(res){
 		var receive = res.data.value;
 		$scope.received = receive;
 		// console.log(me);	
 	})
+}]);
+
+app.controller('ProfileInfo', ['$scope', '$http', function($scope, $http) {
+	$scope.insertData = function() {
+		if ($scope.gender == null)
+		{
+			alert('Please select a gender!');
+		}
+		else if ($scope.bio == null)
+		{
+			alert('Bio is required!');
+		}
+		else if ($scope.location == null)
+		{
+			alert('Location is required!');
+		}
+		else if ($scope.avatar == null)
+		{
+			alert('Avatar is required!');
+		}
+		else if ($scope.cover == null)
+		{
+			alert('Background image is required!');
+		}
+		else if ($scope.mobile == null)
+		{
+			alert('Mobile number is required!');
+		}
+		else if ($scope.languages == null)
+		{
+			alert('Please specify language!');
+		}
+		else
+		{
+			$http.post('insert.php', {
+				'gender': $scope.gender, 
+				'bio': $scope.bio, 
+				'location': $scope.location, 
+				'avatar': $scope.avatar,
+				'cover': $scope.cover,
+				'mobile': $scope.mobile, 
+				'language': $scope.languages,
+				'id': $scope.id
+			}).success(function(data) {
+				alert(data);
+				$scope.avatar = null;
+				$scope.cover = null;
+			});
+		}
+	}
+	$scope.displayData = function() {
+		$http.get('select.php').success(function(data) {
+			$scope.user = data;
+		});
+	}
+	$scope.updateData = function(id, bio, location, avatar, cover, email, mobile) {
+		$scope.id = id;
+		$scope.bio = bio;
+		$scope.location = location;
+		$scope.avatar = avatar;
+		$scope.cover = cover;
+		$scope.email = email;
+		$scope.mobile = mobile;
+	} 
+}]);
+
+app.controller('settings', ['$scope', '$http', function($scope, $http) {
+	$scope.deleteAccount = function(id) {
+		if (confirm('Are you sure you want to delete this account?'))
+		{
+			$http.post('delete.php', {'id': id})
+			.success(function(data) {
+				alert(data);
+			});
+		}
+		else
+		{
+			return false;
+		}
+	}
 }]);
