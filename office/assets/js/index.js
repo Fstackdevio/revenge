@@ -1,4 +1,5 @@
-var menu = document.getElementById('menu'),
+
+  var menu = document.getElementById('menu'),
     panelMenu = menu.querySelectorAll('li'),
     panelBoxes = document.querySelectorAll('.panel__box'),
     signUp = document.getElementById('signUp'),
@@ -8,6 +9,8 @@ function removeSelection(){
     for(var i = 0, len = panelBoxes.length; i < len; i++){panelBoxes[i].classList.remove('active');
     }
 }
+
+
 
 
 signIn.onclick = function(e){
@@ -23,3 +26,4 @@ signUp.onclick = function(e){
   panelBoxes[1].classList.add('active');
   menu.classList.add('second-box');
 }
+

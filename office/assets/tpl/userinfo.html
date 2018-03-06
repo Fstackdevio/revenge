@@ -1,0 +1,118 @@
+<div ng-include="'assets/partials/header.html'"></div>
+<div class="wrapper" ng-controller="UserInfo" ng-init="getData()">
+    <div class="container">
+
+        <!-- Page Title-->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <div class="btn-group pull-right">
+                        <ol class="breadcrumb hide-phone p-0 m-0">
+                            <li>
+                                <a ui-sref="profile">Profile</a>
+                            </li>
+                            <li class="active">
+                                Info
+                            </li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title">User Information</h4>
+                </div>
+            </div>
+        </div>
+        <!--End Of Page Title-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-box">
+                    <form role="form" name="UserInfoForm">
+                        <fieldset title="1">
+                            <legend>Basic Information</legend>
+                            <div class="row m-t-20">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="firstname">First Name</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="firstname" ng-model="firstname" readonly="" value="{{userdata.firstname}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="lastname">Last Name</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="lastname" ng-model="lastname" readonly="" value="{{userdata.lastname}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="email">E-mail</label>
+                                        <div class="col-md-10">
+                                            <input type="email" class="form-control" name="email" ng-model="email" placeholder="{{userdata.email}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="accoutID">Account ID</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static">{{userdata.accountid}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="gender">Gender</label>
+                                        <div class="col-md-10">
+                                            <div class="check checkbox-success" style="width: 30%; float: left;">
+                                                <input type="checkbox" id="male-gender" value="male" name="male-gender" ng-model="gender">
+                                                <label for="male-gender">Male</label>
+                                            </div>
+                                            <div class="check checkbox-success" style="width: 70%; float:left;">
+                                                <input type="checkbox" id="female-gender" value="female" name="female-gender" ng-model="gender">
+                                                <label for="female-gender">Female</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5" style="width: 22%; float:left;">
+                                        <div class="row">
+                                            <img style="width: 180px; height: 150px; text-align: center;" class="img-thumbnail" alt="Avatar Here!" ng-src="{{avatar}}">
+                                        </div>
+                                </div>
+                                <div style="margin-top: 10%;">
+                                    <!--<label for="photo-upload" class="btn btn-success custom-file-upload">
+                                       <i class="fa fa-cicle-arrow-up"></i> Select Avatar 
+                                    </label> -->
+                                    <input id="photo-upload" type="file" photo-file="avatar" onchange="angular.element(this).scope().previewPhoto(event)">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset title="2">
+                            <legend>About You</legend>
+                            <div class="row m-t-20">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="mobile">Mobile</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="mobile" ng-model="mobile" placeholder="{{userdata.mobile}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="location">Location</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="location" ng-model="location" placeholder="{{userdata.location}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="bio">Bio</label>
+                                        <div class="col-md-10">
+                                            <textarea class="form-control" rows="5" id="bio" name="bio" ng-model="bio" placeholder="{{userdata.bio}}"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+
+                        <button type="submit" class="btn btn-primary stepy-finish" ng-click="updateData(id, bio, location, avatar, cover, email, mobile)">Update</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

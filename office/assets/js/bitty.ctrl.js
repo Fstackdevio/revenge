@@ -239,6 +239,9 @@ app.controller('transCtrl', ['$scope', '$http', function($scope,$http){
 }]);
 
 app.controller('ProfileInfo', ['$scope', '$http', function($scope, $http) {
+	$scope.editInfo = function() {
+		$state.go('userinfo');
+	}
 	$scope.insertData = function() {
 		if ($scope.gender == null)
 		{
@@ -268,6 +271,10 @@ app.controller('ProfileInfo', ['$scope', '$http', function($scope, $http) {
 		{
 			alert('Please specify language!');
 		}
+		else if ($scope.occupation == null)
+		{
+			alert('Occupation is required!');
+		}
 		else
 		{
 			$http.post('insert.php', {
@@ -278,6 +285,7 @@ app.controller('ProfileInfo', ['$scope', '$http', function($scope, $http) {
 				'cover': $scope.cover,
 				'mobile': $scope.mobile, 
 				'language': $scope.languages,
+				'occupation': $scope.occupation,
 				'id': $scope.id
 			}).success(function(data) {
 				alert(data);
@@ -291,6 +299,25 @@ app.controller('ProfileInfo', ['$scope', '$http', function($scope, $http) {
 			$scope.user = data;
 		});
 	}
+}]);
+
+app.controller('UserInfo', ['$scope', '$http', function($scope, $http) {
+	$scope.previewPhoto = function(event) {
+		var files = event.target.files;
+		var file = files[files.length-1];
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			$scope.$apply(function() {
+				$scope.avatar = e.target.result;
+			})
+		}
+		reader.readAsDataURL(file);
+	}
+	$scope.getData = function() {
+		$http.get('select.php').success(function(data) {
+			$scope.userdata = data;
+		});
+	}
 	$scope.updateData = function(id, bio, location, avatar, cover, email, mobile) {
 		$scope.id = id;
 		$scope.bio = bio;
@@ -302,11 +329,24 @@ app.controller('ProfileInfo', ['$scope', '$http', function($scope, $http) {
 	} 
 }]);
 
+app.directive('photoFile', function($parse) {
+	return {
+		restrict : 'A',
+		link: function(scope, element, attributes) {
+			var set = $parse(attributes.photoFile);
+			element.bind('change', function() {
+				set.assign(scope, element[0].files);
+				scope.$apply();
+			});
+		}
+	}
+});
+
 app.controller('settings', ['$scope', '$http', function($scope, $http) {
 	$scope.deleteAccount = function(id) {
 		if (confirm('Are you sure you want to delete this account?'))
 		{
-			$http.post('delete.php', {'id': id})
+			$http.post('deactivate.php', {'id': id})
 			.success(function(data) {
 				alert(data);
 			});
